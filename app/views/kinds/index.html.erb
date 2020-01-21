@@ -1,0 +1,30 @@
+<br>
+<div class="basic-grey">
+  <script>
+      $.notify("<%= notice  %>", "success");
+  </script>
+
+<h1>Listando os Tipos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Descrição</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @kinds.each do |kind| %>
+      <tr>
+        <td><%= kind.description %></td>
+        <td><%= link_to 'Editar', edit_kind_path(kind) %></td>
+        <td><%= link_to 'Apagar', kind, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+  <%= link_to t('buttons.new'), new_kind_path, class: "btn btn-primary" %>
+</div>
